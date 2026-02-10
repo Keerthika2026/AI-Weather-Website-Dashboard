@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Designer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Floating bubbles background */
+    .bubbles span {
+      position: absolute;
+      bottom: -120px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      animation: rise 18s infinite linear;
+    }
+
+    .bubbles span:nth-child(1){ left:10%; }
+    .bubbles span:nth-child(2){ left:30%; animation-duration:22s; }
+    .bubbles span:nth-child(3){ left:50%; animation-duration:20s; }
+    .bubbles span:nth-child(4){ left:70%; animation-duration:26s; }
+    .bubbles span:nth-child(5){ left:90%; animation-duration:24s; }
+
+    @keyframes rise {
+      to { transform: translateY(-130vh); }
+    }
+
+    /* Main Card */
+    .card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      width: 360px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      animation: float 4s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    @keyframes float {
+      50% { transform: translateY(-10px); }
+    }
+
+    .college h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .college p {
+      margin: 4px 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .divider {
+      margin: 18px 0;
+      height: 1px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    .countdown {
+      font-size: 14px;
+      margin-bottom: 15px;
+      opacity: 0.85;
+    }
+
+    .designer h2 {
+      margin: 10px 0;
+      font-size: 18px;
+      color: #00d4ff;
+    }
+
+    .designer h4 {
+      margin: 6px 0;
+      font-size: 16px;
+      color: #ffdd57;
+    }
+
+    .designer p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+
+    .roles {
+      text-align: left;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .roles p {
+      margin: 6px 0;
+    }
+
+    .thanks {
+      margin-top: 18px;
+      font-size: 13px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating background -->
+  <div class="bubbles">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Single Card -->
+  <div class="card">
+
+    <div class="college">
+      <h3>Department of Computer Science & Applications</h3>
+      <p>Vivekanandha College of Arts & Sciences for Women (Autonomous)</p>
+      <p>Tiruchengode</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="countdown" id="timer">
+      Page will redirect in 30 seconds
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="designer">
+      <h2>👨‍💻 Project Designer</h2>
+      <h4>P. Keerthika</h4>
+      <p>2nd Year BCA</p>
+
+      <div class="roles">
+        <p>• Website Development</p>
+        <p>• AI Logic & Integration</p>
+        <p>• API Handling</p>
+      </div>
+    </div>
+
+    <div class="thanks">
+      Thank you for visiting my project 💙
+    </div>
+
+  </div>
+
+  <script>
+    let seconds = 30;
+    const timer = document.getElementById("timer");
+
+    const interval = setInterval(() => {
+      seconds--;
+      timer.textContent = "Page will redirect in " + seconds + " seconds";
+
+      if (seconds <= 0) {
+        clearInterval(interval);
+        window.location.href = "index.html"; // back to home
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
