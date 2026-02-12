@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Smart Weather Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="d-n.css">
+
+</head>
+<body>
+
+<div class="bubbles">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="container">
+  <h1>🌍 AI Smart Weather Dashboard</h1>
+  <p class="tagline">Global • Explainable AI • Real-Time</p>
+
+  <div class="search-box floating location-wrapper">
+    <input
+      id="cityInput"
+      placeholder="Enter Location..."
+      oninput="showSuggestions()"
+      autocomplete="off"
+    >
+    <button onclick="getWeather()">Analyze Weather</button>
+    <button class="location-btn" onclick="useCurrentLocation()">📍 Current Location</button>
+
+    <div id="suggestions" class="suggestions-box"></div>
+  </div>
+
+  <p id="locationStatus" class="status"></p>
+
+  <div class="cards">
+    <div class="card floating">
+      <h3>🌦️ Weather Details</h3>
+      <p id="cityName">Location: --</p>
+      <p id="temp">Temperature: -- °C</p>
+      <p id="humidity">Humidity: -- %</p>
+      <p id="wind">Wind Speed: -- km/h</p>
+      <p id="condition">Condition: --</p>
+      <p id="pressure">Air pressure: -- hPa</p>
+      <p id="visibility">Visibility: -- km</p>
+    </div>
+
+    <div class="card ai floating">
+      <h3>🤖 AI Decision</h3>
+      <p id="aiMessage">Waiting for data...</p>
+      <p id="sunrise">Sun rise: --</p>
+      <p id="sunset">Sun set: --</p>
+    </div>
+
+    <div class="card analysis floating">
+      <h3>🧠 AI Analysis</h3>
+      <p id="aiTemp">AI Risk Score: --</p>
+      <p id="aiHumidity">Risk Level: --</p>
+      <p id="aiRisk">--</p>
+      <p id="aiPlaces">📍 Famous Tourist Places: --</p>
+    </div>
+  </div>
+  
+  <div class="theme-toggle">
+  <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+  <button id="langBtn" onclick="toggleTranslate()">✍️</button>
+</div>
+
+  <div id="translateWrap" class="translate-wrap">
+    <div id="google_translate_element"></div>
+  </div>
+
+
+  <footer>
+    © 2025 AI Smart Weather Dashboard |
+    <a href="designers.html" style="color:#00d4ff;text-decoration:none;">
+      👩‍💻 Created by Keerthika P
+    </a>
+  </footer>
+</div>
+
+<script src="ai.js"></script>
+<script src="script.js"></script>
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: "en", includedLanguages: "en,ta,hi,te,ml,kn,fr,es,de,it,pt,ar,zh-CN,ja,ko", layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+      "google_translate_element"
+    );
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
